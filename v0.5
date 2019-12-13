@@ -1,0 +1,45 @@
+def konwerter(cale,centymetry):
+  def cale2centymetry(cale):
+    print (cale, cale_odmiana() +' to ' + str(cale*2.54) + ' centymetrow')
+    
+  def centymetry2cale(cale):
+ 
+    print (centymetry, centymetry_odmiana()+' to ' + str(centymetry/2.54)
+           + ' cali')
+  def cale_odmiana():
+    if cale == 1:
+      return 'cal'
+    elif cale in [2,3,4]:
+      return 'cale'
+    else:
+      return 'cali'
+      
+  def centymetry_odmiana():
+    if centymetry == 1:
+      return 'centymetr'
+    elif centymetry in [2,3,4]:
+      return 'centymetry'
+    else:
+      return 'centymetrów'
+
+  if cale>0 and centymetry==0:
+    cale2centymetry(cale)
+  elif centymetry>0 and cale ==0:
+    centymetry2cale(centymetry)
+  else:
+    print ('podaj jedynie cale lub centymetry większe od zera')
+    
+
+while True:
+  cale= int(input("Cale:(0-przejdz na centymetry)"))
+  if cale >0:
+    centymetry=0
+  if cale==0:
+    centymetry= int(input('Centymetry:'))
+    if centymetry>0:
+      cale = 0
+  
+  if ((cale==0 and centymetry==0) or (cale!=0 and centymetry!=0)):
+     print('Cale lub centymetry muszą być większe od 0')
+  else:
+    konwerter(cale,centymetry)
